@@ -110,6 +110,7 @@ GEM
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     orm_adapter (0.5.0)
+    pg (0.21.0)
     private_pub (1.0.3)
       faye
     pry (0.10.4)
@@ -204,6 +205,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  pg
   private_pub
   pry
   rails (= 4.2.6)
