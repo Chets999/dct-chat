@@ -1,0 +1,86 @@
+A Controller will have these conventional 7 actions --> 
+ 1. ACTION --> INDEX
+ 	To list resources (Data) eg: to list all categories in @categories was used in categories controller
+ url: http://localhost:3000/categories
+ HTTP METHOD : GET	
+ ROle : To list resource (data) 
+ path : categories_path
+
+ 2. NEW
+ 	to setup a FORM
+ url: http://localhost:3000/categories/new
+ uri: /categories/new (1st - Controller , 2nd - action name)
+ action : new
+ HTTP METHOD : GET	(We are still asking for a FORM in which category details have to be keyed in and hence GET Method. Post method will be called when the SUBMIT button on that form is clicked )
+ Role : To instantiate an object and setup a form
+ PATH : new_category_path
+
+ 3. CREATE
+ 	is to save the data coming in from the FORM
+ 	url : http://localhost:3000/categories
+ 	uri : /categories
+ 	method - POST
+ 	action - create
+ 	role   - is to validate the data, if the validations pass then save the data coming in from the FORM or else display the error messages
+
+ 4. SHOW
+ 	is to show one specific resource (data) along with its associated resources
+ 	url : http://localhost:3000/categories/1 (parameter)
+ 	uri:  /1
+ 	method : GET
+ 	action : show
+ 	role:  is to show one specific resouce (data) along with its associated resources
+ 	PATH : category_path(category.id)
+
+ 5. EDIT
+ 	to fetch the record to be edited and display it in a FORM
+ 	url : http://localhost:3000/categories/1/edit
+ 	uri:  /categories/1/edit
+ 	action : GET
+ 	role:  to fetch the record to be edited and display it in a FORM
+ 	Here '1' refers to object id of the selected object. It could be any id value.
+ 	PATH: edit_category_path(@category.id)
+
+ 6. UPDATE
+ 	is to update the data coming in from the form
+ 	url : http://localhost:3000/categories/1/
+ 	uri : /categories/1/
+ 	action: Update / PUT
+ 	method: update_attributes
+ 	role : is to validate the data, if the validations pass then UPDATE the data coming in from the FORM or else display the error messages
+
+
+ 7. DESTROY
+    to find the record to be deleted and invoke the destroy action
+    url : http://localhost:3000/categories/1/
+    uri : /categories/1/
+    method : Delete  - Its a class method and multiple rows can be deleted at once
+    action : DESTROY - Its an instance method and one object/row
+    role : to find the record to be deleted and invoke the destroy action
+
+----------------------------------------------------------------------------
+
+HTTP METHODS : CRUD METHODS
+
+GET    - READ
+POST   - CREATE
+PUT    - UPDATE - ONly one attribute update at a time
+PATCH  - UPDATE - ALlows multiple attributees  to be updated at the same time
+Delete - DESTROY
+
+------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
