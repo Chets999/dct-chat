@@ -16,7 +16,6 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-<<<<<<< HEAD
   <%= f.label :batch_id %>
   <%= f.collection_select :batch_id,Batch.all, :id,:name,prompt: "Select a Batch" %><br/>
   </div>
@@ -25,12 +24,9 @@
   <%= f.label :student %>
   <%= f.collection_check_boxes(:student_ids,Student.all,:id,:name)%><br/>
   </div>
-
-=======
     <%= f.label :batch_id %><br>
     <%= f.number_field :batch_id %>
   </div>
->>>>>>> db754f1daea8bb25d8a149c65640efbc484cb827
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -7,16 +7,10 @@
 
 <p>
   <strong>Batch:</strong>
-<<<<<<< HEAD
   <%= @channel.batch.name %>
 </p>
 
- <h2>Chat Application</h2>
-=======
-  <%= @channel.batch_id %>
-</p>
 <h2>Chat Application</h2>
->>>>>>> db754f1daea8bb25d8a149c65640efbc484cb827
 
  <ul id = "chat">
  	<%= render @channel.messages %>
@@ -30,12 +24,7 @@
  	<% end %>
  </div>
 
-<<<<<<< HEAD
 <%= subscribe_to "/#{@channel.name}/new" %>
-
-=======
-<%= subscribe_to "/@channel.name/" %>
->>>>>>> db754f1daea8bb25d8a149c65640efbc484cb827
 
 <%= link_to 'Edit', edit_channel_path(@channel) %> |
 <%= link_to 'Back', channels_path %>

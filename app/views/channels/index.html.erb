@@ -15,11 +15,8 @@
     <% @channels.each do |channel| %>
       <tr>
         <td><%= channel.name %></td>
-<<<<<<< HEAD
         <td><%= channel.batch.name %></td>
-=======
         <td><%= channel.batch_id %></td>
->>>>>>> db754f1daea8bb25d8a149c65640efbc484cb827
         <td><%= link_to 'Show', channel %></td>
         <td><%= link_to 'Edit', edit_channel_path(channel) %></td>
         <td><%= link_to 'Destroy', channel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
