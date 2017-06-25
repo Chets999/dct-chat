@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :students
   resources :batches
   devise_for :users
   resources :channels
   resources :messages
   resources :subscriptions
+=======
+  resources :channels
+  resources :messages
+>>>>>>> db754f1daea8bb25d8a149c65640efbc484cb827
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

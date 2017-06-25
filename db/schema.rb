@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170623100010) do
+=======
+ActiveRecord::Schema.define(version: 20170621143724) do
+>>>>>>> db754f1daea8bb25d8a149c65640efbc484cb827
 
   create_table "batches", force: :cascade do |t|
     t.string   "name"
@@ -33,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170623100010) do
     t.integer  "channel_id"
   end
 
+<<<<<<< HEAD
   create_table "students", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -68,4 +73,6 @@ ActiveRecord::Schema.define(version: 20170623100010) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
+=======
+>>>>>>> db754f1daea8bb25d8a149c65640efbc484cb827
 end
