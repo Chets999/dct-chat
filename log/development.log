@@ -7071,3 +7071,28 @@ Processing by MessagesController#create as JS
   Rendered messages/_message.html.erb (0.1ms)
   Rendered messages/create.js.erb (29.7ms)
 Completed 200 OK in 443ms (Views: 67.7ms | ActiveRecord: 371.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 05:50:25 +0530
+Processing by ChannelsController#index as HTML
+  [1m[35mUser Load (35.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mChannel Load (0.5ms)[0m  [1mSELECT "channels".* FROM "channels"[0m
+  [1m[35mBatch Load (0.3ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mBatch Load (0.3ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mBatch Load (0.3ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered channels/index.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 467ms (Views: 349.7ms | ActiveRecord: 36.7ms)
