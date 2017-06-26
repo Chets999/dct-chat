@@ -7096,3 +7096,257 @@ Processing by ChannelsController#index as HTML
   [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
   Rendered channels/index.html.erb within layouts/application (23.3ms)
 Completed 200 OK in 467ms (Views: 349.7ms | ActiveRecord: 36.7ms)
+
+
+Started GET "/channels/2" for 127.0.0.1 at 2017-06-26 06:20:13 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ChannelsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mChannel Load (0.5ms)[0m  [1mSELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mBatch Load (0.3ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.5ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."channel_id" = ?  [["channel_id", 2]]
+  Rendered messages/_message.html.erb (0.8ms)
+  Rendered channels/show.html.erb within layouts/application (176.4ms)
+Completed 200 OK in 2120ms (Views: 1834.3ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2017-06-26 06:20:22 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"content"=>"hi", "channel_id"=>"2"}, "commit"=>"send"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (117.1ms)[0m  [1mINSERT INTO "messages" ("content", "channel_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "hi"], ["channel_id", 2], ["created_at", "2017-06-26 00:50:22.873862"], ["updated_at", "2017-06-26 00:50:22.873862"]]
+  [1m[35m (312.7ms)[0m  commit transaction
+  [1m[36mChannel Load (0.3ms)[0m  [1mSELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered messages/_message.html.erb (0.5ms)
+  Rendered messages/create.js.erb (95.3ms)
+Completed 200 OK in 608ms (Views: 168.5ms | ActiveRecord: 430.7ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2017-06-26 06:20:23 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"content"=>"hi", "channel_id"=>"2"}, "commit"=>"send"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (38.3ms)[0m  INSERT INTO "messages" ("content", "channel_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "hi"], ["channel_id", 2], ["created_at", "2017-06-26 00:50:23.491795"], ["updated_at", "2017-06-26 00:50:23.491795"]]
+  [1m[36m (177.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mChannel Load (0.2ms)[0m  SELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered messages/_message.html.erb (0.1ms)
+  Rendered messages/create.js.erb (33.4ms)
+Completed 200 OK in 294ms (Views: 72.2ms | ActiveRecord: 216.9ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2017-06-26 06:20:23 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"content"=>"", "channel_id"=>"2"}, "commit"=>"send"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.7ms)[0m  [1mINSERT INTO "messages" ("content", "channel_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", ""], ["channel_id", 2], ["created_at", "2017-06-26 00:50:24.005787"], ["updated_at", "2017-06-26 00:50:24.005787"]]
+  [1m[35m (187.5ms)[0m  commit transaction
+  [1m[36mChannel Load (0.2ms)[0m  [1mSELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered messages/_message.html.erb (0.1ms)
+  Rendered messages/create.js.erb (31.8ms)
+Completed 200 OK in 269ms (Views: 72.5ms | ActiveRecord: 190.9ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2017-06-26 06:20:29 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"content"=>"hbhbhb", "channel_id"=>"2"}, "commit"=>"send"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (28.7ms)[0m  INSERT INTO "messages" ("content", "channel_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["content", "hbhbhb"], ["channel_id", 2], ["created_at", "2017-06-26 00:50:29.356420"], ["updated_at", "2017-06-26 00:50:29.356420"]]
+  [1m[36m (200.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mChannel Load (0.3ms)[0m  SELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered messages/_message.html.erb (0.1ms)
+  Rendered messages/create.js.erb (39.4ms)
+Completed 200 OK in 326ms (Views: 90.9ms | ActiveRecord: 230.2ms)
+
+
+Started GET "/channels" for 127.0.0.1 at 2017-06-26 06:20:35 +0530
+Processing by ChannelsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mChannel Load (0.5ms)[0m  SELECT "channels".* FROM "channels"
+  [1m[36mBatch Load (0.3ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mBatch Load (0.3ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mBatch Load (0.3ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered channels/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 144ms (Views: 140.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/channels/18" for 127.0.0.1 at 2017-06-26 06:20:38 +0530
+Processing by ChannelsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mChannel Load (0.4ms)[0m  [1mSELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1  [["id", "18"]]
+  [1m[36mBatch Load (0.4ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."channel_id" = ?  [["channel_id", 18]]
+  Rendered messages/_message.html.erb (1.6ms)
+  Rendered channels/show.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 72ms (Views: 66.0ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2017-06-26 06:20:41 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"content"=>"hbyby", "channel_id"=>"18"}, "commit"=>"send"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (25.9ms)[0m  [1mINSERT INTO "messages" ("content", "channel_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "hbyby"], ["channel_id", 18], ["created_at", "2017-06-26 00:50:41.293176"], ["updated_at", "2017-06-26 00:50:41.293176"]]
+  [1m[35m (233.4ms)[0m  commit transaction
+  [1m[36mChannel Load (0.4ms)[0m  [1mSELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1[0m  [["id", 18]]
+  Rendered messages/_message.html.erb (0.1ms)
+  Rendered messages/create.js.erb (36.2ms)
+Completed 200 OK in 363ms (Views: 84.5ms | ActiveRecord: 260.3ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-06-26 06:20:51 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+LeMmL0EhixwqF06ern05aJUI6q6dWNDIvAhSjpmO3oX9daD8pZfG3VxcDL4Gj9FjUNOBQuU5ij16Psi3nNU8A=="}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 226ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 06:20:52 +0530
+Processing by ChannelsController#index as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-26 06:20:52 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (79.9ms)
+Completed 200 OK in 379ms (Views: 357.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-06-26 06:21:14 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OnB7KihZeo+MnQIKBG3h+muluUi5wGOMw9p3Sn+2agpPeSgE9stWer1MULGK9432TEb4vz+tqO8iq7z0CVKRPw==", "user"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "admin@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (27.8ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2017-06-25 18:21:49.492376"], ["current_sign_in_at", "2017-06-26 00:51:14.634397"], ["sign_in_count", 7], ["updated_at", "2017-06-26 00:51:14.635233"], ["id", 2]]
+  [1m[35m (263.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 953ms (ActiveRecord: 291.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 06:21:15 +0530
+Processing by ChannelsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mChannel Load (0.5ms)[0m  SELECT "channels".* FROM "channels"
+  [1m[36mBatch Load (0.3ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mBatch Load (0.4ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mBatch Load (0.3ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered channels/index.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 112ms (Views: 107.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/channels/2" for 127.0.0.1 at 2017-06-26 06:21:17 +0530
+Processing by ChannelsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mChannel Load (0.6ms)[0m  [1mSELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mBatch Load (0.5ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.7ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."channel_id" = ?  [["channel_id", 2]]
+  Rendered messages/_message.html.erb (0.7ms)
+  Rendered channels/show.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 86ms (Views: 78.5ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2017-06-26 06:21:21 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"content"=>"uuhu", "channel_id"=>"2"}, "commit"=>"send"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (74.5ms)[0m  [1mINSERT INTO "messages" ("content", "channel_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "uuhu"], ["channel_id", 2], ["created_at", "2017-06-26 00:51:21.695405"], ["updated_at", "2017-06-26 00:51:21.695405"]]
+  [1m[35m (400.0ms)[0m  commit transaction
+  [1m[36mChannel Load (0.4ms)[0m  [1mSELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered messages/_message.html.erb (0.1ms)
+  Rendered messages/create.js.erb (36.6ms)
+Completed 200 OK in 567ms (Views: 79.8ms | ActiveRecord: 475.4ms)
+
+
+Started GET "/channels/2" for 127.0.0.1 at 2017-06-26 06:21:26 +0530
+Processing by ChannelsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mChannel Load (0.5ms)[0m  [1mSELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mBatch Load (0.3ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."channel_id" = ?  [["channel_id", 2]]
+  Rendered messages/_message.html.erb (1.1ms)
+  Rendered channels/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 81ms (Views: 75.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/channels/2" for 127.0.0.1 at 2017-06-26 15:12:27 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ChannelsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mChannel Load (0.4ms)[0m  [1mSELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mBatch Load (0.4ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.4ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."channel_id" = ?  [["channel_id", 2]]
+  Rendered messages/_message.html.erb (1.5ms)
+  Rendered channels/show.html.erb within layouts/application (113.1ms)
+Completed 200 OK in 1054ms (Views: 878.4ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/messages" for 127.0.0.1 at 2017-06-26 15:12:36 +0530
+Processing by MessagesController#create as JS
+  Parameters: {"utf8"=>"✓", "message"=>{"content"=>"ufcsufhaufj", "channel_id"=>"2"}, "commit"=>"send"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (28.3ms)[0m  [1mINSERT INTO "messages" ("content", "channel_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "ufcsufhaufj"], ["channel_id", 2], ["created_at", "2017-06-26 09:42:36.387211"], ["updated_at", "2017-06-26 09:42:36.387211"]]
+  [1m[35m (340.1ms)[0m  commit transaction
+  [1m[36mChannel Load (0.3ms)[0m  [1mSELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered messages/_message.html.erb (0.5ms)
+  Rendered messages/create.js.erb (37.9ms)
+Completed 200 OK in 460ms (Views: 86.3ms | ActiveRecord: 369.1ms)
+
+
+Started GET "/channels/2" for 127.0.0.1 at 2017-06-26 15:12:38 +0530
+Processing by ChannelsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mChannel Load (0.3ms)[0m  [1mSELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "channels".* FROM "channels" WHERE "channels"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mBatch Load (0.2ms)[0m  [1mSELECT  "batches".* FROM "batches" WHERE "batches"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMessage Load (0.3ms)[0m  SELECT "messages".* FROM "messages" WHERE "messages"."channel_id" = ?  [["channel_id", 2]]
+  Rendered messages/_message.html.erb (0.7ms)
+  Rendered channels/show.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 62ms (Views: 58.6ms | ActiveRecord: 1.2ms)
